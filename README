@@ -1,1 +1,7 @@
-first file
+1. root -l prpreSelectTree.C 
+	//creates root file (preSelectedData.root) with preselected data
+2. python preSelectToArray.py
+	//read data from preSelectedData.root 
+	//and write to "b_lt_5k.npy" and "b_lg_5k.npy" files 
+3. python3 myData_pfn_run.py 
+	// runs pfn_example on "b_lt_5k.npy" and "b_lg_5k.npy" data 
