@@ -37,6 +37,7 @@ void preSelectTree(){
         if(evtNr%100==0)cout << evtNr << endl;
        // if(evtNr%1000==0)break;
         j=0;
+		sum_pt=0;
 		b_ = *b;
         for(int i=0;i<*nmult;i++){
             
@@ -48,6 +49,8 @@ void preSelectTree(){
             
 			
             pt_[j]=sqrt(px[i]*px[i]+py[i]*py[i]);
+			
+			sum_pt=sum_pt+pt_[j];
         
             if(px[i]==0) phi_[j]=-4;
             if(px[i]==0&&py[i]!=0) phi_[j]=py[i]/fabs(py[i])*TMath::Pi()/2;
@@ -57,7 +60,7 @@ void preSelectTree(){
             j+=1;
         }
         nmult_ = j;
-		if(j>0)treeOut->Fill();
+		if(j>0 && sum_pt>0.2)treeOut->Fill();
             
     }
     
