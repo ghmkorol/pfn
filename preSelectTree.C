@@ -32,6 +32,7 @@ void preSelectTree(){
     
     int evtNr = 0;
     int j=0;
+	int sum_pt;
     while(theReader.Next()){
         evtNr++;
         if(evtNr%100==0)cout << evtNr << endl;
@@ -39,6 +40,7 @@ void preSelectTree(){
         j=0;
 		sum_pt=0;
 		b_ = *b;
+		if(b_<11)continue;
         for(int i=0;i<*nmult;i++){
             
             eta_[j] = -log(tan(atan(sqrt(pow(px[i],2)+pow(py[i],2))/fabs(pz[i]))/2))*(pz[i]/fabs(pz[i]));
